@@ -3,7 +3,7 @@
 var i = 8;
 
 //add HTML for another element to the list's innerHTML property
-var addLi = function(){    
+var addLi = function(){
     var list = document.getElementById('thelist');
     list.innerHTML += "<li> item " + i + " </li>";
     i++;
@@ -38,3 +38,30 @@ for(i = 0; i < li.length; i++){
     li[i].addEventListener("click", remove);
 }
 
+//fib sequence
+var fib = function(n) {
+    if (n == 0){
+	return 0;
+    }
+
+    if (n == 1){
+	return 1;
+    }
+
+    else {
+	return fib(n - 2) + fib(n - 1);
+    }
+}
+
+var n = 0;
+
+//add elements to list
+var addElements = function(){
+    var secondList = document.getElementById('theSecondList');
+    secondList.appendChild('<li>' + fib(n) + '</li>');
+    n++;
+}
+
+//add elements for second button
+var b2 = document.getElementById('b2');
+b2.addEventListener('click', addElements);
