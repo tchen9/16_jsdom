@@ -1,17 +1,18 @@
-
 //variable to update list element number
 var i = 8;
 
 //add HTML for another element to the list's innerHTML property
+//adds event listeners for new elements
 var addLi = function(){
     var list = document.getElementById('thelist');
-    list.innerHTML += "<li> item " + i + " </li>";
+    var element = document.createElement('li');
+    element.innerHTML += 'item ' + i;
     i++;
+    list.appendChild(element);
+    element.addEventListener("mouseover", changeHead);
+    element.addEventListener("mouseout", changeHeadBack);
+    element.addEventListener("click", remove);
 }
-
-//adds an element when button is clicked
-var b = document.getElementById('b');
-b.addEventListener('click', addLi);
 
 //changes head to whatever list element is being hovered over
 var changeHead = function() {
@@ -29,6 +30,10 @@ var changeHeadBack = function() {
 var remove = function() {
     this.remove();
 }
+
+//adds an element when button is clicked
+var b = document.getElementById('b');
+b.addEventListener('click', addLi);
 
 //goes through list of li elements and adds events to each
 var li = document.getElementsByTagName('li')
@@ -56,8 +61,10 @@ var n = 0;
 //add elements to list
 var addElements = function(){
     var secondList = document.getElementById('theSecondList');
-    secondList.innerHTML += '<li>' + fib(n) + '</li>';
+    var element = document.createElement('li');
+    element.innerHTML += fib(n);
     n++;
+    secondList.appendChild(element);
 }
 
 //add elements for second button
