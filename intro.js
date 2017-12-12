@@ -43,11 +43,9 @@ var fib = function(n) {
     if (n == 0){
 	return 0;
     }
-
     if (n == 1){
 	return 1;
     }
-
     else {
 	return fib(n - 2) + fib(n - 1);
     }
@@ -58,7 +56,7 @@ var n = 0;
 //add elements to list
 var addElements = function(){
     var secondList = document.getElementById('theSecondList');
-    secondList.appendChild('<li>' + fib(n) + '</li>');
+    secondList.innerHTML += '<li>' + fib(n) + '</li>';
     n++;
 }
 
